@@ -4,15 +4,21 @@ from django.http import HttpResponse
 
 def index(request):
     context: dict = {
-        'title': 'Home',
-        'content': 'Welcome to Online Shop!',
-        'list': ['first', 'second'],
-        'dict': {'first': 1},
-        'is_autenticated': False
+        'title': 'OnlineShop - Главная страница',
+        'content': "OnlineShop: Онлайн-магазин для всех ваших потребностей"
     }
 
     return render(request, 'main/index.html', context)
 
 
 def about(request):
-    return HttpResponse("Hello, world.")
+    context: dict = {
+        'title': 'OnlineShop - О нас',
+        'content': "Обо мне",
+        'text_on_page': "Привет! Меня зовут Варяниця Илья, и я создатель этого проекта."
+                        " В этом проекте я стараюсь применить все знания и навыки, "
+                        "которые я приобрел, и создать максимально полезный и удобный магазин."
+                        "Спасибо, что посетили мой проект по созданию интернет-магазина!"
+    }
+
+    return render(request, 'main/about.html', context)
